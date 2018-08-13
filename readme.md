@@ -18,7 +18,7 @@ const to = require('await-fn');
 For example:
 ```javascript
 /** code code code */
-await to(console.log, { params: ['It\'s alive!'] });
+let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
 /** code code code */
 ```
 
@@ -33,3 +33,7 @@ To use this function: `to(fn [, options]);`
 	2. `web: boolean` true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder).
 
 	3. `throw: boolean` if you wish the error can be thrown instead of returned.
+
+And the results will be returned like this:
+
+`[error, data]` where the error is an error object (depending on the options chosen), and data is the function's output.
