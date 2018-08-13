@@ -17,5 +17,5 @@ const to = require('await-fn');
 
 for example:
 ```javascript
-await to(console.log('It\'s alive!'));
+await to(console.log, { params: ['It\'s alive!'] });
 ```
