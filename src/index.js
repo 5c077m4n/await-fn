@@ -1,25 +1,29 @@
 const bluebird = require('bluebird');
 const hr = require('http-responder');
 
-module.exports = (fn, ...args) => {
-	if(!args[options]) {
-		return bluebird.resolve(fn(...args[params]))
+module.exports = (fn, options) => {
+	if(!options) {
+		return bluebird.resolve(fn(...options.params))
 			.then(data => [undefined, data])
 			.catch(error => [error, undefined]);
 	}
-	if(args[options].throw && args[options].web) {
+	if(options.throw && options.web) {
 		return bluebird.resolve(fn(...args[params]))
 			.then(data => [undefined, data])
-			.catch(error => { throw hr.improve(error); });
+			.catch(error => {
+				throw hr.improve(error);
+			});
 	}
-	if(args[options].web) {
+	if(options.web) {
 		return bluebird.resolve(fn(...args[params]))
 			.then(data => [undefined, data])
 			.catch(error => [hr.improve(error), undefined]);
 	}
-	if(args[options].throw) {
+	if(options.throw) {
 		return bluebird.resolve(fn(...args[params]))
 			.then(data => [undefined, data])
-			.catch(error => { throw error; });
+			.catch(error => {
+				throw error;
+			});
 	}
 };
