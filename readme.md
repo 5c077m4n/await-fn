@@ -31,7 +31,7 @@ To use this function: `to(fn [, options]);`
 
 1. `fn: Function` the function you want to wait to.
 
-2. `options: {}` the options object may be a nodejs error, or include:
+2. `options: {}` includes:
 
 	1. `params: any[]` an array of the input parameters for your function.
 
