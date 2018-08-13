@@ -22,6 +22,9 @@ let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
 /** code code code */
 ```
 
+Usage:
+------
+
 To use this function: `to(fn [, options]);`
 
 1. `fn: Function` the function you want to wait to.
@@ -33,6 +36,10 @@ To use this function: `to(fn [, options]);`
 	2. `web: boolean` true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder).
 
 	3. `throw: boolean` if you wish the error can be thrown instead of returned.
+
+
+Returned values:
+------
 
 And the results will be returned like this:
 
