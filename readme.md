@@ -14,3 +14,8 @@ const to = require('await-fn');
 ```
 
 **and you are good to go!**
+
+for example:
+```javascript
+await to(console.log('It\'s alive!'));
+```
