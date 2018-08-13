@@ -9,6 +9,8 @@ Type into the terminal
 npm install --save await-fn
 ```
 
+And into your code:
+
 ```javascript
 const to = require('await-fn');
 ```
