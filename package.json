@@ -1,11 +1,11 @@
 {
   "name": "await-fn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny package to await a normal function.",
   "main": "./src/index.js",
   "scripts": {
-	"test": "mocha",
-	"lint": "./node_modules/.bin/eslint ./src/index.js"
+    "test": "mocha",
+    "lint": "./node_modules/.bin/eslint ./src/index.js"
   },
   "repository": {
     "type": "git",
