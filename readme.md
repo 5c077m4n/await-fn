@@ -35,9 +35,9 @@ To use this function: `to(fn [, options]);`
 
 	1. `params: any[]` an array of the input parameters for your function.
 
-	2. `web: boolean` true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder).
+	2. `web: boolean` true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder) object.
 
-	3. `throw: boolean` if you wish the error can be thrown instead of returned.
+	3. `throw: boolean` if you wish the error to be thrown instead of returned.
 
 
 Returned values:
@@ -45,4 +45,4 @@ Returned values:
 
 And the results will be returned like this:
 
-`[error, data]` where the error is an error object (depending on the options chosen), and data is the function's output.
+`[error, data]` where the error is an error object (depending on the options chosen), and data is the function's returned value.
