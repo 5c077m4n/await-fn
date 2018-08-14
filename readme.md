@@ -1,6 +1,8 @@
 Await Function
 ======
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/5c077m4n/await-fn.svg)](https://greenkeeper.io/)
+
 A tiny helper to make it easy to await a normal function.
 
 Type into the terminal
