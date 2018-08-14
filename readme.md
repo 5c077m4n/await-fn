@@ -2,6 +2,7 @@ Await Function
 ======
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/5c077m4n/await-fn.svg)](https://greenkeeper.io/)
+[![David DM](https://david-dm.org/5c077m4n/await-fn.svg)](https://david-dm.org/)
 
 A tiny helper to make it easy to await a normal function.
 

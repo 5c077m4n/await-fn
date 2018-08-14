@@ -5,7 +5,11 @@ const should = require('chai').should();
 const to = require('../src/index');
 
 
-const wait = time => new Promise(resolve => setTimeout(resolve, time));
+const factorial = x => (x > 0)? (x * factorial(x - 1)) : 1;
+const longJob = () => {
+	for(let i = 0; i < 1e7; i++) factorial(15);
+	return 1;
+};
 
 describe('Test to function', function() {
 	describe('the calculating', function() {
@@ -13,20 +17,19 @@ describe('Test to function', function() {
 			let [error, data] = await to(() => 7);
 			expect(data).equal(7);
 		});
-		it('should return 6 - with 1 param', async function() {
+		it('should return 6 - 1 param', async function() {
 			let [error, data] = await to(x => ++x, { params: [5] });
 			expect(data).equal(6);
 		});
-		it('should return 4 - with 2 params', async function() {
+		it('should return 4 - 2 params', async function() {
 			let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
 			expect(data).equal(4);
 		});
 	});
 	describe('the waiting', function() {
 		it('wait for the result', async function() {
-			const [error, data] = await wait(300)
-				.then(() => to(() => 11));
-			expect(data).equal(11);
+			let [error, data] = await to(longJob);
+			expect(data).equal(1);
 		});
 	});
 });

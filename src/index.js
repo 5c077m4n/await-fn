@@ -1,8 +1,8 @@
-const bluebird = require('bluebird');
+const Bluebird = require('bluebird');
 const hr = require('http-responder');
 
 module.exports = (fn, options = {}) => {
-	return bluebird.resolve(fn(...((options.params)? options.params : [undefined])))
+	return Promise.resolve(fn(...((options.params)? options.params : [undefined])))
 		.then(data => [undefined, data])
 		.catch(error => {
 			if(options.throw && options.web) throw hr.improve(error);
