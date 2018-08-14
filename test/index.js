@@ -1,6 +1,7 @@
 const assert = require('assert');
 const expect = require('chai').expect;
 const should = require('chai').should();
+const hr = require('http-responder');
 
 const to = require('../src/index');
 
@@ -24,6 +25,24 @@ describe('Test to function', function() {
 		it('should return 4 - 2 params', async function() {
 			let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
 			expect(data).equal(4);
+		});
+	});
+	describe('the error handling', function() {
+		it('should throw the error', async function() {
+			try {
+				await to(JSON.parse, { params: [123], throw: true });
+			}
+			catch(error) {
+				expect(error instanceof Error).equal(true);
+			}
+		});
+		it('should throw an http-responder error', async function() {
+			try {
+				await to(JSON.parse, { params: [123], throw: true, web: true });
+			}
+			catch(error) {
+				expect(error instanceof hr).equal(true);
+			}
 		});
 	});
 	describe('the waiting', function() {
