@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/5c077m4n/await-fn/issues"
   },
-  "homepage": "https://github.com/5c077m4n/await-fn#readme",
+  "homepage": "https://5c077m4n.github.io/await-fn/",
   "dependencies": {
     "bluebird": "^3.5.1",
     "http-responder": "^1.1.18"
