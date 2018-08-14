@@ -3,7 +3,7 @@ Await Function
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/5c077m4n/await-fn.svg)](https://greenkeeper.io/)
 [![David DM](https://david-dm.org/5c077m4n/await-fn.svg)](https://david-dm.org/)
-[![Travis CI](https://travis-ci.org/5c077m4n/await-fn)](https://travis-ci.org/)
+[![Build Status](https://travis-ci.org/5c077m4n/await-fn.svg?branch=master)](https://travis-ci.org/5c077m4n/await-fn)
 
 A tiny helper to make it easy to await a normal function.
 
