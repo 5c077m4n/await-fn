@@ -30,16 +30,16 @@ describe('Test to function', function() {
 	});
 	describe('the error handling', function() {
 		it('should catch the error', async function() {
-			const [error, data] = await to(() => factorial(1e16));
+			const [error, data] = await to(factorial, { param: 1e5 });
 			expect(error instanceof Error).equal(true);
 		});
 		it('should catch the HTTP Responder object', async function() {
-			const [error, data] = await to(() => factorial(1e16), { web: true });
+			const [error, data] = await to(factorial, { param: 1e5, web: true });
 			expect(hr.isHR(error)).equal(true);
 		});
 		it('should throw an error', async function() {
 			try {
-				await to(() => factorial(1e16), { throw: true });
+				await to(factorial, { param: 1e5, throw: true });
 			}
 			catch(error) {
 				expect(error instanceof Error).equal(true);
@@ -47,7 +47,7 @@ describe('Test to function', function() {
 		});
 		it('should throw an HTTP Responder object', async function() {
 			try {
-				await to(() => factorial(1e16), { throw: true, web: true });
+				await to(factorial, { param: 1e5, throw: true, web: true });
 			}
 			catch(error) {
 				expect(hr.isHR(error)).equal(true);
