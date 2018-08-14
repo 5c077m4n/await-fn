@@ -2,7 +2,7 @@ const Bluebird = require('bluebird');
 const hr = require('http-responder');
 
 module.exports = (fn, options = {}) => {
-	return new Bluebird((resolve, reject) => {
+	return new Bluebird((resolve) => {
 		resolve(fn(...((options.params)? options.params : [undefined])));
 	})
 		.then(data => [undefined, data])
