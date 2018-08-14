@@ -1,6 +1,6 @@
 {
   "name": "await-fn",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "A tiny package to await a normal function.",
   "main": "./src/index.js",
   "scripts": {
@@ -25,9 +25,9 @@
   "keywords": [
     "await",
     "function",
-	"async",
-	"backend",
-	"ES7"
+    "async",
+    "backend",
+    "ES7"
   ],
   "author": "Roee Shapira",
   "license": "ISC",
