@@ -48,4 +48,8 @@ Returned values:
 
 And the results will be returned like this:
 
-`[error, data]` where the error is an error object (depending on the options chosen), and data is the function's returned value.
+`[error, data]` where:
+
+- `error: undefined | Error | http-responder` the error is an error object (depending on the options chosen).
+
+- `data: undefined | any` is the function's returned value.
