@@ -52,4 +52,4 @@ And the results will be returned like this:
 
 - `error: undefined | Error | http-responder` is an error object (depending on the options chosen).
 
-- `data: undefined | any` is the function's returned value.
+- `data: undefined | any` is the function's returned value (if there is one).
