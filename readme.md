@@ -33,11 +33,11 @@ To use this function: `to(fn [, options]);`
 
 2. `options: {}` includes:
 
-	1. `params: any[]` an array of the input parameters for your function.
+	- `params: any[]` an array of the input parameters for your function.
 
-	2. `web: boolean` true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder) object.
+	- `web: boolean` true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder) object.
 
-	3. `throw: boolean` if you wish the error to be thrown instead of returned.
+	- `throw: boolean` if you wish the error to be thrown instead of returned.
 
 
 Returned values:
