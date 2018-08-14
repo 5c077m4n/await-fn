@@ -8,7 +8,7 @@ const to = require('../src/index');
 const wait = time => new Promise(resolve => setTimeout(resolve, time));
 
 describe('Test to function', function() {
-	describe('the waiting', function() {
+	describe('the calculating', function() {
 		it('should return 7 - no params', async function() {
 			let [error, data] = await to(() => 7);
 			expect(data).equal(7);
@@ -20,6 +20,13 @@ describe('Test to function', function() {
 		it('should return 4 - with 2 params', async function() {
 			let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
 			expect(data).equal(4);
+		});
+	});
+	describe('the waiting', function() {
+		it('wait for the result', async function() {
+			const [error, data] = await wait(300)
+				.then(() => to(() => 11));
+			expect(data).equal(11);
 		});
 	});
 });
