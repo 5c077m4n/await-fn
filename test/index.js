@@ -20,7 +20,7 @@ describe('Test to function', function() {
 			expect(data).equal(7);
 		});
 		it('should return 6 - 1 param', async function() {
-			let [error, data] = await to(x => ++x, { params: [5] });
+			let [error, data] = await to(x => ++x, { param: 5 });
 			expect(data).equal(6);
 		});
 		it('should return 4 - 2 params', async function() {

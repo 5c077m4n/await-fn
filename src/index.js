@@ -2,9 +2,13 @@ const Bluebird = require('bluebird');
 const hr = require('http-responder');
 
 module.exports = (fn, options = {}) => {
-	return new Bluebird((resolve) => {
-		resolve(fn(...((options.params)? options.params : [undefined])));
-	})
+	let prom;
+	if(options.params) prom = new Bluebird(resolve =>
+		resolve(fn(...options.params))
+	);
+	else prom = new Bluebird(resolve => resolve(fn(options.param)));
+
+	return prom
 		.then(data => [undefined, data])
 		.catch(error => {
 			if(options.throw) Bluebird.reject(error);
