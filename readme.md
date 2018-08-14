@@ -41,9 +41,9 @@ To use this function: `to(fn [, options]);`
 
 	- `params: any[]` **or** `param: any` the input parameters for your function.
 
-	- `web: boolean` true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder) object.
+	- `web: boolean` set to true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder) object.
 
-	- `throw: boolean` if you wish the error to be thrown instead of returned.
+	- `throw: boolean` set to true if you wish the error to be thrown instead of returned.
 
 
 Returned values:
