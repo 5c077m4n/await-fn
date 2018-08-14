@@ -30,7 +30,7 @@
     "ES7"
   ],
   "author": "Roee Shapira",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/5c077m4n/await-fn/issues"
   },
