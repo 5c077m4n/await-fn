@@ -25,7 +25,9 @@
   "keywords": [
     "await",
     "function",
-    "async"
+	"async",
+	"backend",
+	"ES7"
   ],
   "author": "Roee Shapira",
   "license": "ISC",
