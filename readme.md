@@ -50,6 +50,6 @@ And the results will be returned like this:
 
 `[error, data]` where:
 
-- `error: undefined | Error | http-responder` the error is an error object (depending on the options chosen).
+- `error: undefined | Error | http-responder` is an error object (depending on the options chosen).
 
 - `data: undefined | any` is the function's returned value.
