@@ -26,6 +26,9 @@ For example:
 async function doThisNThat() {
 	/** code code code */
 	let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
+	if(err) {
+        /** handle error */
+	}
 	/** code code code */
 }
 ```
