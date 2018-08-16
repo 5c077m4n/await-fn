@@ -36,7 +36,7 @@ async function doThisNThat() {
 Usage:
 ------
 
-To use this function: `to(fn [, options]);`
+To use this function: `to(fnOrPromise [, options]);`
 
 1. `fnOrPromise: Function | Promise` the function or promise you want to wait to.
 
