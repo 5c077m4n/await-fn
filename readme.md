@@ -38,11 +38,11 @@ Usage:
 
 To use this function: `to(fn [, options]);`
 
-1. `fn: Function` the function you want to wait to.
+1. `fnOrPromise: Function | Promise` the function or promise you want to wait to.
 
 2. `options: {}` includes:
 
-	- `params: any[]` **or** `param: any` the input parameters for your function.
+	- `params: any[]` **or** `param: any` the input parameters for your function **(for functions only)**.
 
 	- `web: boolean` set to true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder) object.
 

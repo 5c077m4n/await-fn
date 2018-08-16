@@ -27,8 +27,18 @@ describe('Test to function', function() {
 			let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
 			expect(data).equal(4);
 		});
+		it('should return 1234 - promise', async function() {
+			const p = new Promise((resolve) => resolve(1234));
+			let [err, data] = await to(p);
+			expect(data).equal(1234);
+		});
 	});
 	describe('the error handling', function() {
+		it('should catch the error - promise', async function() {
+			const p = new Promise((resolve) => resolve(factorial(1e5)));
+			const [error, data] = await to(p);
+			expect(error instanceof Error).equal(true);
+		});
 		it('should catch the error', async function() {
 			const [error, data] = await to(factorial, { param: 1e5 });
 			expect(error instanceof Error).equal(true);
