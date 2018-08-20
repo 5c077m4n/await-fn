@@ -22,6 +22,7 @@ const to = require('await-fn');
 **and you are good to go!**
 
 For example:
+
 ```javascript
 async function doThisNThat() {
 	/** code code code */
@@ -56,6 +57,6 @@ And the results will be returned like this:
 
 `[error, data]` where:
 
-- `error: undefined | Error | http-responder` is an error object (depending on the options chosen).
+- `error: undefined | Error | http-responder` is an error object (depending on the options chosen - if `thrown` is set to true then this won't exist).
 
 - `data: undefined | any` is the function's returned value (if there is one).
