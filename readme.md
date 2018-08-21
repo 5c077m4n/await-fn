@@ -1,5 +1,4 @@
-Await Function
-======
+# Await Function
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/5c077m4n/await-fn.svg)](https://greenkeeper.io/)
 [![David DM](https://david-dm.org/5c077m4n/await-fn.svg)](https://david-dm.org/)
@@ -28,14 +27,13 @@ async function doThisNThat() {
 	/** code code code */
 	let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
 	if(err) {
-        /** handle error */
+        /** handle error - only if throw is set to false! */
 	}
 	/** code code code */
 }
 ```
 
-Usage:
-------
+## Usage:
 
 To use this function: `to(fnOrPromise [, options]);`
 
@@ -50,8 +48,7 @@ To use this function: `to(fnOrPromise [, options]);`
 	- `throw: boolean` set to true if you wish the error to be thrown instead of returned.
 
 
-Returned values:
-------
+### Returned values:
 
 And the results will be returned like this:
 
