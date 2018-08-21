@@ -15,11 +15,9 @@ module.exports = (fn, options = {}) => {
 		.then(data => [undefined, data])
 		.catch(error => {
 			if(options.throw) Bluebird.reject(error);
-			if(options.web) return [hr.improve(error), undefined];
-			return [error, undefined];
+			return (options.web)? [hr.improve(error), undefined] : [error, undefined];
 		})
 		.catch(error => {
-			if(options.web) throw [hr.improve(error), undefined];
-			throw [error, undefined];
+			throw (options.web)? hr.improve(error) : error;
 		});
 };
