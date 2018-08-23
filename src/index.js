@@ -4,10 +4,9 @@ const hr = require('http-responder');
 module.exports = (fn, options = {}) => {
 	let promise;
 	if(fn instanceof Function) {
-		promise = new Bluebird(resolve => {
-			if(options.params) resolve(fn(...options.params))
-			else resolve(fn(options.param))
-		});
+		promise = new Bluebird(resolve =>
+			resolve((options.params)? fn(...options.params) : fn(options.param))
+		);
 	}
 	if(fn instanceof Promise) promise = fn;
 
