@@ -1,3 +1,5 @@
+'use strict';
+
 const Bluebird = require('bluebird');
 const hr = require('http-responder');
 
@@ -11,7 +13,7 @@ module.exports = (fn, options = {}) => {
 	if(fn instanceof Promise) promise = fn;
 
 	return promise
-		.then(data => [undefined, data])
+		.then(data => (options.onlyData)? data : [undefined, data])
 		.catch(error => {
 			if(options.throw) Bluebird.reject(error);
 			return (options.web)? [hr.improve(error), undefined] : [error, undefined];
