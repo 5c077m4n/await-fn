@@ -16,6 +16,10 @@ const longTask = () => {
 describe('Test to function', function() {
 	describe('the calculating', function() {
 		it('should return 7 - no params', async function() {
+			let data = await to(() => 7, { onlyData: true });
+			expect(data).equal(7);
+		});
+		it('should return 7 - onlyData', async function() {
 			let [error, data] = await to(() => 7);
 			expect(data).equal(7);
 		});
