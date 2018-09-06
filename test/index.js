@@ -16,24 +16,24 @@ const longTask = () => {
 describe('Test to function', function() {
 	describe('the calculating', function() {
 		it('should return 7 - no params', async function() {
-			let data = await to(() => 7, { onlyData: true });
+			const [error, data] = await to(() => 7);
 			expect(data).equal(7);
 		});
-		it('should return 7 - onlyData', async function() {
-			let [error, data] = await to(() => 7);
+		it('should return 7 - no params - returnOne', async function() {
+			const data = await to(() => 7, { returnOne: true });
 			expect(data).equal(7);
 		});
 		it('should return 6 - 1 param', async function() {
-			let [error, data] = await to(x => ++x, { param: 5 });
+			const [error, data] = await to(x => ++x, { param: 5 });
 			expect(data).equal(6);
 		});
 		it('should return 4 - 2 params', async function() {
-			let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
+			const [err, data] = await to((a, b) => a + b, { params: [1, 3] });
 			expect(data).equal(4);
 		});
 		it('should return 1234 - promise', async function() {
 			const p = new Promise((resolve) => resolve(1234));
-			let [err, data] = await to(p);
+			const [err, data] = await to(p);
 			expect(data).equal(1234);
 		});
 	});
@@ -44,7 +44,11 @@ describe('Test to function', function() {
 			expect(error instanceof Error).equal(true);
 		});
 		it('should catch the error', async function() {
-			const [error, data] = await to(factorial, { param: 1e5 });
+			const [error, data] = await to(factorial, { param: 1e5, });
+			expect(error instanceof Error).equal(true);
+		});
+		it('should catch the error - returnOne', async function() {
+			const error = await to(factorial, { param: 1e5, returnOne: true });
 			expect(error instanceof Error).equal(true);
 		});
 		it('should catch the HTTP Responder object', async function() {

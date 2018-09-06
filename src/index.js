@@ -13,9 +13,11 @@ module.exports = (fn, options = {}) => {
 	if(fn instanceof Promise || fn instanceof Bluebird) promise = fn;
 
 	return promise
-		.then(data => (options.onlyData)? data : [undefined, data])
+		.then(data => (options.returnOne)? data : [undefined, data])
 		.catch(error => {
 			if(options.throw) Bluebird.reject(error);
+			if(options.returnOne)
+				return (options.web)? hr.improve(error) : error;
 			return (options.web)? [hr.improve(error), undefined] : [error, undefined];
 		})
 		.catch(error => {
