@@ -10,7 +10,7 @@ module.exports = (fn, options = {}) => {
 			resolve((options.params)? fn(...options.params) : fn(options.param))
 		);
 	}
-	if(fn instanceof Promise) promise = fn;
+	if(fn instanceof Promise || fn instanceof Bluebird) promise = fn;
 
 	return promise
 		.then(data => (options.onlyData)? data : [undefined, data])
