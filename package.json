@@ -1,6 +1,6 @@
 {
   "name": "await-fn",
-  "version": "1.1.20",
+  "version": "1.2.0",
   "description": "A tiny package to await a classic function.",
   "main": "./src/index.js",
   "scripts": {
