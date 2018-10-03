@@ -4,32 +4,38 @@ const Bluebird = require('bluebird');
 const hr = require('http-responder');
 
 
-const instanceOfArrayItems = arr => {
-	for(const el of arr)
-		if(el || (arr[0].constructor !== el.constructor)) return false;
-	return arr[0].constructor;
-};
-
 module.exports = (fn, options = {}) => {
-	let promise;
+	let promise, resArr = [];
 	if(fn.constructor === Function) {
-		promise = new Bluebird(resolve =>
-			resolve((options.params)?
-				fn(...options.params) : fn(options.param))
-		);
+		promise = new Bluebird(resolve => {
+			return resolve((options.params)?
+				fn(...options.params) : fn(options.param)
+			)
+		});
 	}
 	if(fn.constructor === Promise || fn.constructor === Bluebird) promise = fn;
 	if(fn.constructor === Array) {
-		const arrType = instanceOfArrayItems(fn);
-		if(!arrType) return;
-		if(arrType === Function) {
-			fn = fn.map(async func => await Bluebird.promisify(func));
-		}
-		else promise = Bluebird.all(fn);
+		const promArr = fn.map(async fnOrProm => {
+			let res;
+			if(fnOrProm.constructor === Function) {
+				res = await new Bluebird(resolve => {
+					return resolve((options.params)?
+						fnOrProm(...options.params) : fnOrProm(options.param)
+					)
+				});
+			}
+			if(fnOrProm.constructor === Promise || fnOrProm.constructor === Bluebird)
+				res = await fnOrProm;
+			resArr.push(res);
+		})
+		promise = Bluebird.all(promArr);
 	}
 
 	return promise
-		.then(data => (options.returnOne)? data : [undefined, data])
+		.then(data => {
+			if(resArr.length) return [undefined, resArr];
+			return (options.returnOne)? data : [undefined, data];
+		})
 		.catch(error => {
 			if(options.throw) Bluebird.reject(error);
 			if(options.returnOne)

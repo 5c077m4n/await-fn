@@ -1,4 +1,3 @@
-const assert = require('assert');
 const expect = require('chai').expect;
 const should = require('chai').should();
 const hr = require('http-responder');
@@ -8,12 +7,13 @@ const to = require('../src/index');
 
 const log = console.log.bind(console);
 const factorial = x => (x > 0)? (x * factorial(x - 1)) : 1;
+const factPromise = x => new Promise(resolve => resolve(factorial(x)));
 const longTask = () => {
 	for(let i = 0; i < 1e7; i++) factorial(10);
 	return 1;
 };
 
-describe('Test to function', function() {
+describe('Test the to function', function() {
 	describe('the calculating', function() {
 		it('should return 7 - no params', async function() {
 			const [error, data] = await to(() => 7);
@@ -76,6 +76,24 @@ describe('Test to function', function() {
 		it('wait for the result', async function() {
 			const [error, data] = await to(longTask);
 			expect(data).equal(1);
+		});
+	});
+	describe('array handling', function() {
+		it('get the result', async function() {
+			const [error, data] = await to([() => 1]);
+			expect(data).to.exist;
+		});
+		it('check the result - 1 calc (1 function)', async function() {
+			const [error, data] = await to([factorial], { param: 3 });
+			expect(data[0]).to.equal(6);
+		});
+		it('check the result - 2 calc (2 functions)', async function() {
+			const [error, data] = await to([factorial, factorial], { param: 3 });
+			expect(data).to.deep.equal([6, 6]);
+		});
+		it('check the result - 2 calc (function and promise)', async function() {
+			const [error, data] = await to([factorial, factPromise(3)], { param: 3 });
+			expect(data).to.deep.equal([6, 6]);
 		});
 	});
 });
