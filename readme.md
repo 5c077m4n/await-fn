@@ -37,7 +37,7 @@ async function doThisNThat() {
 
 To use this function: `to(fnOrPromise [, options]);`
 
-1. `fnOrPromise: Function | Promise` the function or promise you want to wait to.
+1. `fnOrPromise: Function | Promise | Function[] | Promise[]` the function or promise or array of them that you want to wait to.
 
 2. `options: {}` includes:
 
@@ -56,4 +56,7 @@ And the results will be returned like this:
 
 - `error: undefined | Error | http-responder` is an error object (depending on the options chosen - if `thrown` is set to true then this won't exist).
 
-- `data: undefined | any` is the function's returned value (if there is one).
+- `data: undefined | any | any[]` is the function's returned value (if there is one) - if you inputted an array the result will be in an array too.
+
+
+**Happy waiting! ;)**
