@@ -37,7 +37,7 @@ async function doThisNThat() {
 
 To use this function: `to(fnOrPromise [, options]);`
 
-1. `fnOrPromise: Function | Promise | Function[] | Promise[]` the function or promise or array of them that you want to wait to.
+1. `fnOrPromise: Function | Promise | <Function | Promise>[]` the function or promise or array of them that you want to wait to.
 
 2. `options: {}` includes:
 
