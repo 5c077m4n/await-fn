@@ -5,9 +5,11 @@ const hr = require('http-responder');
 const to = require('../src/index');
 
 
-const log = console.log.bind(console);
+const log = msg => {
+	console.log(msg);
+	return msg;
+};
 const factorial = x => (x > 0)? (x * factorial(x - 1)) : 1;
-const factPromise = x => new Promise(resolve => resolve(factorial(x)));
 const longTask = () => {
 	for(let i = 0; i < 1e7; i++) factorial(10);
 	return 1;
@@ -79,7 +81,7 @@ describe('Test the to function', function() {
 		});
 	});
 	describe('array handling', function() {
-		it('get the result', async function() {
+		it('get a result', async function() {
 			const [error, data] = await to([() => 1]);
 			expect(data).to.exist;
 		});
@@ -91,9 +93,13 @@ describe('Test the to function', function() {
 			const [error, data] = await to([factorial, factorial], { param: 3 });
 			expect(data).to.deep.equal([6, 6]);
 		});
-		it('check the result - 2 calc (function and promise)', async function() {
-			const [error, data] = await to([factorial, factPromise(3)], { param: 3 });
-			expect(data).to.deep.equal([6, 6]);
+		it('check the result - 2 calc (function & promise)', async function() {
+			const [error, data] = await to([
+				factorial,
+				new Promise(resolve => resolve(factorial(4))),
+				new Promise(resolve => resolve(factorial(3))),
+			], { param: 3 });
+			expect(data).to.deep.equal([6, 24, 6]);
 		});
 	});
 });
