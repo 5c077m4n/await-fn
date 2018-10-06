@@ -85,15 +85,15 @@ describe('Test the to function', function() {
 			const [error, data] = await to([() => 1]);
 			expect(data).to.exist;
 		});
-		it('check the result - 1 calc (1 function)', async function() {
+		it('should check the result - 1 calc (1 function)', async function() {
 			const [error, data] = await to([factorial], { param: 3 });
 			expect(data[0]).to.equal(6);
 		});
-		it('check the result - 2 calc (2 functions)', async function() {
+		it('should check the result - 2 calc (2 functions)', async function() {
 			const [error, data] = await to([factorial, factorial], { param: 3 });
 			expect(data).to.deep.equal([6, 6]);
 		});
-		it('check the result - 2 calc (function & promise)', async function() {
+		it('should check the result - 2 calc (function & promise)', async function() {
 			const [error, data] = await to([
 				factorial,
 				new Promise(resolve => resolve(factorial(4))),
