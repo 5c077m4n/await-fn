@@ -93,7 +93,7 @@ describe('Test the to function', function() {
 			const [error, data] = await to([factorial, factorial], { param: 3 });
 			expect(data).to.deep.equal([6, 6]);
 		});
-		it('should check the result - 2 calc (function & promise)', async function() {
+		it('should check the result - 3 calc (function & promise)', async function() {
 			const [error, data] = await to([
 				factorial,
 				new Promise(resolve => resolve(factorial(4))),
