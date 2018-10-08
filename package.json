@@ -37,7 +37,7 @@
   "homepage": "https://5c077m4n.github.io/await-fn/",
   "dependencies": {
     "bluebird": "^3.5.2",
-    "http-responder": "^1.1.67"
+    "http-responder": "^1.1.74"
   },
   "devDependencies": {
     "chai": "^4.2.0",
