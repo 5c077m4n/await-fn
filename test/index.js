@@ -101,5 +101,9 @@ describe('Test the to function', function() {
 			], { param: 3 });
 			expect(data).to.deep.equal([6, 24, 6]);
 		});
+		it('should check the result - array of 1000 functions', async function() {
+			const [error, data] = await to(Array(1e3).fill(factorial), { param: 3 });
+			expect(data).to.deep.equal(Array(1e3).fill(6));
+		});
 	});
 });
