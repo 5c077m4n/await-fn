@@ -10,6 +10,7 @@ const log = msg => {
 	return msg;
 };
 const factorial = x => (x > 0)? (x * factorial(x - 1)) : 1;
+const factorialPromise = x => new Promise(resolve => resolve(factorial(x)));
 const longTask = () => {
 	for(let i = 0; i < 1e7; i++) factorial(10);
 	return 1;
@@ -101,8 +102,13 @@ describe('Test the to function', function() {
 			], { param: 3 });
 			expect(data).to.deep.equal([6, 24, 6]);
 		});
-		it('should check the result - array of 1000 functions', async function() {
-			const [error, data] = await to(Array(1e3).fill(factorial), { param: 3 });
+		it('should check the result - array of 500 functions & 500 promises', async function() {
+			const [error, data] = await to(
+				Array.from(
+					{ length: 1e3 },
+					(v, i) => (i % 2)? factorial : factorialPromise
+				), { param: 3 }
+			);
 			expect(data).to.deep.equal(Array(1e3).fill(6));
 		});
 	});
