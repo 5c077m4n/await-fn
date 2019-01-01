@@ -1,11 +1,12 @@
 {
   "name": "await-fn",
-  "version": "1.2.9",
+  "version": "1.2.8",
   "description": "A tiny package to await a classic function.",
   "main": "./src/index.js",
   "scripts": {
     "test": "mocha",
-    "lint": "./node_modules/.bin/eslint ./src/index.js"
+    "lint": "node_modules/.bin/eslint ./src/index.js",
+    "bundle": "node_modules/.bin/eslint ./src/index.js && node_modules/.bin/webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^5.6.1",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2"
   }
 }
