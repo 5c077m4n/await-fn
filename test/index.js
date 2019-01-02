@@ -2,8 +2,8 @@ const expect = require('chai').expect;
 const should = require('chai').should();
 const hr = require('http-responder');
 
-// const to = require('../src/index');
-const to = require('../dist/to.bundle');
+const to = require('../src/index');
+// const to = require('../dist/to.bundle');
 
 
 const log = msg => {
