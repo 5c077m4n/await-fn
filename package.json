@@ -1,50 +1,55 @@
 {
-  "name": "await-fn",
-  "version": "1.2.10",
-  "description": "A tiny package to await a classic function.",
-  "main": "./src/index.js",
-  "scripts": {
-    "test": "mocha",
-    "lint": "node_modules/.bin/eslint ./src/index.js",
-    "bundle": "node_modules/.bin/eslint ./src/index.js && node_modules/.bin/webpack --config webpack.config.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/5c077m4n/await-fn.git"
-  },
-  "eslintConfig": {
-    "env": {
-      "node": true,
-      "es6": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 6
-    },
-    "extends": "eslint:recommended",
-    "rules": {}
-  },
-  "keywords": [
-    "await",
-    "function",
-    "async",
-    "backend",
-    "ES7"
-  ],
-  "author": "Roee Shapira",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/5c077m4n/await-fn/issues"
-  },
-  "homepage": "https://5c077m4n.github.io/await-fn/",
-  "dependencies": {
-    "bluebird": "^3.5.2",
-    "http-responder": "^1.1.74"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^5.6.1",
-    "mocha": "^5.2.0",
-    "webpack": "^4.28.3",
-    "webpack-cli": "^3.1.2"
-  }
+	"name": "await-fn",
+	"version": "1.2.8",
+	"description": "A tiny package to await a classic function.",
+	"main": "./src/index.js",
+	"scripts": {
+		"test": "mocha",
+		"lint": "node_modules/.bin/eslint ./src/index.js",
+		"build:bundle": "node_modules/.bin/eslint ./src/index.js && node_modules/.bin/webpack --config webpack.config.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/5c077m4n/await-fn.git"
+	},
+	"eslintConfig": {
+		"env": {
+			"node": true,
+			"browser": true,
+			"es6": true
+		},
+		"parserOptions": {
+			"ecmaVersion": 6,
+			"sourceType": "module"
+		},
+		"extends": "eslint:recommended",
+		"rules": {}
+	},
+	"keywords": [
+		"await",
+		"function",
+		"async",
+		"backend",
+		"ES7"
+	],
+	"author": "Roee Shapira",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/5c077m4n/await-fn/issues"
+	},
+	"homepage": "https://5c077m4n.github.io/await-fn/",
+	"dependencies": {
+		"bluebird": "^3.5.3",
+		"http-responder": "^1.2.4"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.2.3",
+		"babel-loader": "^8.0.4",
+		"chai": "^4.2.0",
+		"eslint": "^5.11.1",
+		"mocha": "^5.2.0",
+		"webpack": "^4.28.3",
+		"webpack-cli": "^3.1.2"
+	}
 }

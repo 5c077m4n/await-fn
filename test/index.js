@@ -2,8 +2,8 @@ const expect = require('chai').expect;
 const should = require('chai').should();
 const hr = require('http-responder');
 
-const to = require('../src/index');
-// const to = require('../dist/index.bundle');
+// const to = require('../src/index');
+const to = require('../dist/to.bundle');
 
 
 const log = msg => {
@@ -24,15 +24,21 @@ describe('Test the to function', function () {
 			expect(data).equal(7);
 		});
 		it('should return 7 - no params - returnOne', async function () {
-			const data = await to(() => 7, { returnOne: true });
+			const data = await to(() => 7, {
+				returnOne: true
+			});
 			expect(data).equal(7);
 		});
 		it('should return 6 - 1 param', async function () {
-			const [error, data] = await to(x => ++x, { param: 5 });
+			const [error, data] = await to(x => ++x, {
+				param: 5
+			});
 			expect(data).equal(6);
 		});
 		it('should return 4 - 2 params', async function () {
-			const [err, data] = await to((a, b) => a + b, { params: [1, 3] });
+			const [err, data] = await to((a, b) => a + b, {
+				params: [1, 3]
+			});
 			expect(data).equal(4);
 		});
 		it('should return 1234 - promise', async function () {
@@ -48,30 +54,43 @@ describe('Test the to function', function () {
 			expect(error instanceof Error).equal(true);
 		});
 		it('should catch the error', async function () {
-			const [error, data] = await to(factorial, { param: 1e5, });
+			const [error, data] = await to(factorial, {
+				param: 1e5,
+			});
 			expect(error instanceof Error).equal(true);
 		});
 		it('should catch the error - returnOne', async function () {
-			const error = await to(factorial, { param: 1e5, returnOne: true });
+			const error = await to(factorial, {
+				param: 1e5,
+				returnOne: true
+			});
 			expect(error instanceof Error).equal(true);
 		});
 		it('should catch the HTTP Responder object', async function () {
-			const [error, data] = await to(factorial, { param: 1e5, web: true });
+			const [error, data] = await to(factorial, {
+				param: 1e5,
+				web: true
+			});
 			expect(hr.isHR(error)).equal(true);
 		});
 		it('should throw an error', async function () {
 			try {
-				await to(factorial, { param: 1e5, throw: true });
-			}
-			catch (error) {
+				await to(factorial, {
+					param: 1e5,
+					throw: true
+				});
+			} catch (error) {
 				expect(error instanceof Error).equal(true);
 			}
 		});
 		it('should throw an HTTP Responder object', async function () {
 			try {
-				await to(factorial, { param: 1e5, throw: true, web: true });
-			}
-			catch (error) {
+				await to(factorial, {
+					param: 1e5,
+					throw: true,
+					web: true
+				});
+			} catch (error) {
 				expect(hr.isHR(error)).equal(true);
 			}
 		});
@@ -88,11 +107,15 @@ describe('Test the to function', function () {
 			expect(data).to.exist;
 		});
 		it('should check the result - 1 calc (1 function)', async function () {
-			const [error, data] = await to([factorial], { param: 3 });
+			const [error, data] = await to([factorial], {
+				param: 3
+			});
 			expect(data[0]).to.equal(6);
 		});
 		it('should check the result - 2 calc (2 functions)', async function () {
-			const [error, data] = await to([factorial, factorial], { param: 3 });
+			const [error, data] = await to([factorial, factorial], {
+				param: 3
+			});
 			expect(data).to.deep.equal([6, 6]);
 		});
 		it('should check the result - 3 calc (function & promise)', async function () {
@@ -100,17 +123,23 @@ describe('Test the to function', function () {
 				factorial,
 				new Promise(resolve => resolve(factorial(4))),
 				new Promise(resolve => resolve(factorial(3))),
-			], { param: 3 });
+			], {
+				param: 3
+			});
 			expect(data).to.deep.equal([6, 24, 6]);
 		});
 		it('should check the result - array of 500 functions & 500 promises', async function () {
 			const [error, data] = await to(
-				Array.from(
-					{ length: 1e3 },
+				Array.from({
+						length: 1e3
+					},
 					(v, i) => (i % 2) ? factorial : factorialPromise
-				), { param: 3 }
+				), {
+					param: 3
+				}
 			);
 			expect(data).to.deep.equal(Array(1e3).fill(6));
 		});
 	});
+	after(() => console.log(to));
 });

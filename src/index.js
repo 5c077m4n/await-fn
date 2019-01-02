@@ -4,7 +4,7 @@ const Bluebird = require('bluebird');
 const hr = require('http-responder');
 
 
-module.exports = (fn, options = {}) => {
+const to = (fn, options = {}) => {
 	let promise;
 	if (fn.constructor === Function) {
 		promise = new Bluebird(resolve => {
@@ -37,5 +37,14 @@ module.exports = (fn, options = {}) => {
 				return (options.web) ? hr.improve(error) : error;
 			return (options.web) ? [hr.improve(error), undefined] : [error, undefined];
 		})
-		.catch(error => { throw (options.web) ? hr.improve(error) : error; });
+		.catch(error => {
+			throw (options.web) ? hr.improve(error) : error;
+		});
 };
+
+if (module && module.exports) module.exports = to;
+else if (window) {
+	const originalTo = window.to;
+	window.to = to;
+	window.restoreOriginalTo = () => window.to = originalTo;
+}
