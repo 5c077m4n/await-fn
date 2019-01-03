@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# output files
+dist/
+
+# kde folder options
+.directory

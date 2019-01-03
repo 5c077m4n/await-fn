@@ -6,7 +6,9 @@ const nodeConfig = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'to.bundle.js'
+		filename: 'to.bundle.js',
+		library: 'to',
+		libraryTarget: 'commonjs2'
 	},
 	mode: 'production',
 	module: {
@@ -28,7 +30,9 @@ const webConfig = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'to.bundle.js'
+		filename: 'to.web.bundle.js',
+		library: 'to',
+		libraryTarget: 'umd'
 	},
 	mode: 'production',
 	module: {
