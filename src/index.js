@@ -43,8 +43,9 @@ const to = (fn, options = {}) => {
 };
 
 if (module && module.exports) module.exports = to;
-else if (window) {
-	const originalTo = window.to;
-	window.to = to;
-	window.restoreOriginalTo = () => window.to = originalTo;
+else if (window || self) {
+	const global = window || self;
+	const originalTo = global.to;
+	global.to = to;
+	global.restoreOriginalTo = () => global.to = originalTo;
 }

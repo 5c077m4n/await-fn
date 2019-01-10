@@ -141,5 +141,4 @@ describe('Test the to function', function () {
 			expect(data).to.deep.equal(Array(1e3).fill(6));
 		});
 	});
-	after(() => console.log(to));
 });
