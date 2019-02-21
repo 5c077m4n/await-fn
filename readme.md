@@ -45,7 +45,7 @@ To use this function: `to(fnOrPromise [, options]);`
 
 	- `web: boolean` set to true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder) object.
 
-	- `throwError: boolean` set to true if you wish the error to be thrown instead of returned (*this is a rename from the previous `throw` option in past versions*).
+	- `throwError: boolean` set to true if you wish the error to be thrown instead of returned (*this option has been renamed from `throw`*).
 
 ### Returned values:
 
