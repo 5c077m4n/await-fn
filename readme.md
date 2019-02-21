@@ -27,7 +27,7 @@ async function doThisNThat() {
 	/** code code code */
 	let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
 	if(err) {
-        /** handle error - only if throw is set to false! */
+        /** handle error - only if throwError is set to false! */
 	}
 	/** code code code */
 }
@@ -45,7 +45,7 @@ To use this function: `to(fnOrPromise [, options]);`
 
 	- `web: boolean` set to true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder) object.
 
-	- `throw: boolean` set to true if you wish the error to be thrown instead of returned.
+	- `throwError: boolean` set to true if you wish the error to be thrown instead of returned (*this is different from the previous `throw` option if past versions*).
 
 ### Returned values:
 
@@ -53,7 +53,7 @@ And the results will be returned like this:
 
 `[error, data]` where:
 
-- `error: undefined | Error | http-responder` is an error object (depending on the options chosen - if `thrown` is set to true then this won't exist).
+- `error: undefined | Error | http-responder` is an error object (depending on the options chosen - if `throwError` is set to true then this won't exist).
 
 - `data: undefined | any | any[]` is the function's returned value (if there is one) - if you inputted an array the result will be in an array too.
 

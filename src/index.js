@@ -4,12 +4,12 @@ const Bluebird = require('bluebird');
 const hr = require('http-responder');
 
 
-const to = (fn, options = {}) => {
+const to = (fn, { params, param, returnOne, web, throwError } = {}) => {
 	let promise;
 	if (fn.constructor === Function) {
 		promise = new Bluebird(resolve => {
-			return resolve((options.params) ?
-				fn(...options.params) : fn(options.param)
+			return resolve(params ?
+				fn(...params) : fn(param)
 			)
 		});
 	}
@@ -18,8 +18,8 @@ const to = (fn, options = {}) => {
 		const promArr = fn.map(fnOrProm => {
 			if (fnOrProm.constructor === Function) {
 				return new Bluebird(resolve => {
-					return resolve((options.params) ?
-						fnOrProm(...options.params) : fnOrProm(options.param)
+					return resolve(params ?
+						fnOrProm(...params) : fnOrProm(param)
 					)
 				});
 			}
@@ -30,15 +30,15 @@ const to = (fn, options = {}) => {
 	}
 
 	return promise
-		.then(data => (options.returnOne) ? data : [undefined, data])
+		.then(data => (returnOne) ? data : [undefined, data])
 		.catch(error => {
-			if (options.throw) return Bluebird.reject(error);
-			if (options.returnOne)
-				return (options.web) ? hr.improve(error) : error;
-			return (options.web) ? [hr.improve(error), undefined] : [error, undefined];
+			if (throwError) return Bluebird.reject(error);
+			if (returnOne)
+				return web ? hr.improve(error) : error;
+			return web ? [hr.improve(error), undefined] : [error, undefined];
 		})
 		.catch(error => {
-			throw (options.web) ? hr.improve(error) : error;
+			throw web ? hr.improve(error) : error;
 		});
 };
 
