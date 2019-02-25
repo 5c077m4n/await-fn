@@ -47,6 +47,8 @@ To use this function: `to(fnOrPromise [, options]);`
 
 	- `throwError: boolean` set to true if you wish the error to be thrown instead of returned (*this option has been renamed from `throw`*).
 
+	- `returnOne: boolean` set to true so the result will be only in one parameter (instead of an array of two) - it can be either a result or an error.
+
 ### Returned values:
 
 And the results will be returned like this:
