@@ -16,8 +16,7 @@
 		"await",
 		"function",
 		"async",
-		"backend",
-		"ES7"
+		"backend"
 	],
 	"author": "Roee Shapira",
 	"license": "MIT",
