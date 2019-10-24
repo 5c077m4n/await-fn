@@ -1,7 +1,7 @@
 'use strict';
 
 const Bluebird = require('bluebird');
-const hr = require('../node_modules/http-responder/src');
+const hr = require('http-responder');
 
 
 const to = (fn, { params, param, returnOne, web, throwError } = {}) => {
