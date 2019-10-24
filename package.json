@@ -26,7 +26,7 @@
 	"homepage": "https://5c077m4n.github.io/await-fn/",
 	"dependencies": {
 		"bluebird": "^3.5.3",
-		"http-responder": "^1.3.0"
+		"http-responder": "*"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.6.4",
