@@ -1,6 +1,5 @@
 const path = require('path');
 
-
 const nodeConfig = {
 	target: 'node',
 	entry: './src/index.js',
