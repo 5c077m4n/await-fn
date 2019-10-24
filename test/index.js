@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const should = require('chai').should();
-const hr = require('../node_modules/http-responder/src');
+const hr = require('http-responder'); /* npm link */
 
 const to = require('../src/index');
 // const to = require('../dist/to.bundle');
