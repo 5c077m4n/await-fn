@@ -5,7 +5,6 @@ const hr = require('http-responder');
 const to = require('../src/index');
 // const to = require('../dist/to.bundle');
 
-
 const log = msg => {
 	console.log(msg);
 	return msg;
