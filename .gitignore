@@ -61,7 +61,7 @@ typings/
 .next
 
 # output files
-dist/
+#dist/
 
 # kde folder options
 .directory
