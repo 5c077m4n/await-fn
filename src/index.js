@@ -34,10 +34,4 @@ const to = (fn, { params, param, returnOne, web, throwError } = {}) => {
 		});
 };
 
-if (module && module.exports) module.exports = to;
-else if (window || self) {
-	const global = window || self;
-	const originalTo = global.to;
-	global.to = to;
-	global.restoreOriginalTo = () => (global.to = originalTo);
-}
+module.exports = to;
