@@ -4,6 +4,7 @@
 [![David DM](https://david-dm.org/5c077m4n/await-fn.svg)](https://david-dm.org/)
 [![Build Status](https://travis-ci.org/5c077m4n/await-fn.svg?branch=master)](https://travis-ci.org/5c077m4n/await-fn)
 [![Known Vulnerabilities](https://snyk.io/test/github/5c077m4n/http-responder/badge.svg)](https://snyk.io/test/github/5c077m4n/http-responder)
+[![Coverage Status](https://coveralls.io/repos/github/5c077m4n/await-fn/badge.svg?branch=master)](https://coveralls.io/github/5c077m4n/await-fn?branch=master)
 
 A tiny helper to make it easy to await a classic function (and now promises too).
 
