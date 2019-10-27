@@ -16,6 +16,15 @@ const longTask = () => {
 	return 1;
 };
 
+describe('Sanity', function () {
+	it('Should detect a wrong input', async function () {
+		try {
+			const [error, data] = await to(7);
+		} catch (err) {
+			expect(err instanceof Error);
+		}
+	});
+});
 describe('Test the to function', function () {
 	describe('the calculating', function () {
 		it('should return 7 - no params', async function () {
