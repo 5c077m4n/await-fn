@@ -27,7 +27,6 @@
 	},
 	"homepage": "https://5c077m4n.github.io/await-fn/",
 	"dependencies": {
-		"bluebird": "^3.7.1",
 		"http-responder": "2.x"
 	},
 	"devDependencies": {

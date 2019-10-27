@@ -1,33 +1,25 @@
 'use strict';
 
-const Bluebird = require('bluebird');
 const hr = require('http-responder');
 
 const to = (fn, { params, param, returnOne, web, throwError } = {}) => {
 	let promise;
 	if (fn.constructor === Function) {
-		promise = new Bluebird(resolve =>
-			resolve(params ? fn(...params) : fn(param))
-		);
-	} else if (fn.constructor === Promise || fn.constructor === Bluebird) {
+		promise = new Promise(resolve => resolve(params ? fn(...params) : fn(param)));
+	} else if (fn.constructor === Promise) {
 		promise = fn;
 	} else if (Array.isArray(fn)) {
 		const promArr = fn.map(fnOrProm => {
 			if (fnOrProm.constructor === Function) {
-				return new Bluebird(resolve => {
+				return new Promise(resolve => {
 					return resolve(
 						params ? fnOrProm(...params) : fnOrProm(param)
 					);
 				});
 			}
-			if (
-				fnOrProm.constructor === Promise ||
-				fnOrProm.constructor === Bluebird
-			) {
-				return fnOrProm;
-			}
+			if (fnOrProm.constructor === Promise) return fnOrProm;
 		});
-		promise = Bluebird.all(promArr);
+		promise = Promise.all(promArr);
 	} else {
 		throw new Error('There was an erron in your input function.');
 	}
@@ -35,7 +27,7 @@ const to = (fn, { params, param, returnOne, web, throwError } = {}) => {
 	return promise
 		.then(data => (returnOne ? data : [undefined, data]))
 		.catch(error => {
-			if (throwError) return Bluebird.reject(error);
+			if (throwError) return Promise.reject(error);
 			if (returnOne) return web ? hr.improve(error) : error;
 			return web ? [hr.improve(error), undefined] : [error, undefined];
 		})
