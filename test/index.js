@@ -118,24 +118,22 @@ describe('Test the to function', function () {
 			expect(data).to.deep.equal([6, 6]);
 		});
 		it('should check the result - 3 calc (function & promise)', async function () {
-			const [error, data] = await to([
-				factorial,
-				new Promise(resolve => resolve(factorial(4))),
-				new Promise(resolve => resolve(factorial(3))),
-			], {
-				param: 3
-			});
+			const [error, data] = await to(
+				[factorial,
+					new Promise(resolve => resolve(factorial(4))),
+					new Promise(resolve => resolve(factorial(3))),
+				],
+				{ param: 3 }
+			);
 			expect(data).to.deep.equal([6, 24, 6]);
 		});
 		it('should check the result - array of 500 functions & 500 promises', async function () {
 			const [error, data] = await to(
-				Array.from({
-						length: 1e3
-					},
+				Array.from(
+					{ length: 1e3 },
 					(v, i) => (i % 2) ? factorial : factorialPromise
-				), {
-					param: 3
-				}
+				),
+				{ param: 3 },
 			);
 			expect(data).to.deep.equal(Array(1e3).fill(6));
 		});
