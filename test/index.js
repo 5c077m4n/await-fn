@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
-const should = require('chai').should();
 const hr = require('http-responder');
 
+// const to = require('await-fn');
 const to = require('../src');
 // const to = require('../dist/to.bundle');
 

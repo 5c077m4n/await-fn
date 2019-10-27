@@ -4,7 +4,7 @@
 	"description": "A tiny package to await a classic function (and more...).",
 	"main": "./dist/to.bundle.js",
 	"scripts": {
-		"clean": "rimraf ./dist && rimraf ./.nyc_output",
+		"clean": "rimraf ./dist",
 		"test": "mocha",
 		"lint": "node_modules/.bin/eslint ./src/index.js",
 		"build": "node_modules/.bin/webpack --config webpack.config.js",
@@ -27,7 +27,7 @@
 	},
 	"homepage": "https://5c077m4n.github.io/await-fn/",
 	"dependencies": {
-		"http-responder": "2.x"
+		"http-responder": "^2.0.14"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.6.4",
