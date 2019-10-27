@@ -11,11 +11,9 @@ const to = (fn, { params, param, returnOne, web, throwError } = {}) => {
 	} else if (Array.isArray(fn)) {
 		const promArr = fn.map(fnOrProm => {
 			if (fnOrProm.constructor === Function) {
-				return new Promise(resolve => {
-					return resolve(
-						params ? fnOrProm(...params) : fnOrProm(param)
-					);
-				});
+				return new Promise(resolve => resolve(
+					params ? fnOrProm(...params) : fnOrProm(param)
+				));
 			}
 			if (fnOrProm.constructor === Promise) return fnOrProm;
 		});
