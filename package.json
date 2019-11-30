@@ -6,8 +6,8 @@
 	"scripts": {
 		"clean": "rimraf ./dist",
 		"test": "mocha",
-		"lint": "node_modules/.bin/eslint ./src/index.js",
-		"build": "node_modules/.bin/webpack --config webpack.config.js",
+		"lint": "lint-staged",
+		"build": "webpack --config webpack.config.js",
 		"prepublish": "run-s lint build test"
 	},
 	"repository": {
@@ -46,7 +46,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged"
+			"pre-commit": "run-s lint build test"
 		}
 	},
 	"lint-staged": {
