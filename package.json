@@ -6,7 +6,7 @@
 	"scripts": {
 		"clean": "rimraf ./dist",
 		"test": "mocha",
-		"lint": "eslint ./src/indes.js",
+		"lint": "eslint ./src/index.js",
 		"lint:staged": "lint-staged",
 		"build": "webpack --config webpack.config.js",
 		"prepublish": "run-s lint build test"
