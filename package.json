@@ -27,19 +27,32 @@
 	},
 	"homepage": "https://5c077m4n.github.io/await-fn/",
 	"dependencies": {
-		"http-responder": "^2.0.14"
+		"http-responder": "^2.0.17"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.6.4",
-		"@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-		"@babel/preset-env": "^7.6.3",
+		"@babel/core": "^7.7.4",
+		"@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+		"@babel/preset-env": "^7.7.4",
 		"babel-loader": "^8.0.6",
 		"chai": "^4.2.0",
-		"eslint": "^6.5.1",
+		"eslint": "^6.7.1",
+		"husky": "^3.1.0",
+		"lint-staged": "^9.5.0",
 		"mocha": "^6.2.2",
 		"npm-run-all": "^4.1.5",
 		"rimraf": "^3.0.0",
 		"webpack": "^4.41.2",
-		"webpack-cli": "^3.3.9"
+		"webpack-cli": "^3.3.10"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": [
+			"eslint --fix",
+			"git add"
+		]
 	}
 }
