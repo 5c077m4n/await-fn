@@ -1,6 +1,6 @@
 {
 	"name": "await-fn",
-	"version": "1.2.44",
+	"version": "1.2.45",
 	"description": "A tiny package to await a classic function (and more...).",
 	"main": "./dist/to.bundle.js",
 	"scripts": {
