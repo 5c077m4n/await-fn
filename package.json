@@ -9,7 +9,7 @@
 		"lint": "eslint ./src/index.js",
 		"lint:staged": "lint-staged",
 		"build": "webpack --config webpack.config.js",
-		"prepublish": "run-s lint build test"
+		"postinstall": "npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -28,7 +28,7 @@
 	},
 	"homepage": "https://5c077m4n.github.io/await-fn/",
 	"dependencies": {
-		"http-responder": "^2.0.17"
+		"http-responder": "^2.0.20"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.7.4",
@@ -36,7 +36,7 @@
 		"@babel/preset-env": "^7.7.4",
 		"babel-loader": "^8.0.6",
 		"chai": "^4.2.0",
-		"eslint": "^6.7.1",
+		"eslint": "^6.7.2",
 		"husky": "^3.1.0",
 		"lint-staged": "^9.5.0",
 		"mocha": "^6.2.2",
