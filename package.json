@@ -1,6 +1,6 @@
 {
 	"name": "await-fn",
-	"version": "1.2.50",
+	"version": "1.2.51",
 	"description": "A tiny package to await a classic function (and more...).",
 	"main": "./dist/to.cjs.bundle.js",
 	"module": "./dist/to.esm.bundle.js",
