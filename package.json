@@ -8,8 +8,7 @@
 		"test": "mocha",
 		"lint": "eslint ./src/index.js",
 		"lint:staged": "lint-staged",
-		"build": "webpack --config webpack.config.js",
-		"postinstall": "npm run build"
+		"build": "webpack --config webpack.config.js"
 	},
 	"repository": {
 		"type": "git",
