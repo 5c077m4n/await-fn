@@ -2,7 +2,8 @@
 	"name": "await-fn",
 	"version": "1.2.50",
 	"description": "A tiny package to await a classic function (and more...).",
-	"main": "./dist/to.bundle.js",
+	"main": "./dist/to.cjs.bundle.js",
+	"module": "./dist/to.esm.bundle.js",
 	"scripts": {
 		"clean": "rimraf ./dist",
 		"test": "mocha",
@@ -46,7 +47,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "run-s clean build lint:staged",
+			"pre-commit": "run-s lint:staged clean build",
 			"pre-push": "run-s lint test"
 		}
 	},

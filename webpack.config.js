@@ -1,52 +1,81 @@
 const path = require('path');
 
-const nodeConfig = {
+const cjsConfig = {
 	target: 'node',
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'to.bundle.js',
+		filename: 'to.cjs.bundle.js',
 		library: 'to',
-		libraryTarget: 'commonjs2'
+		libraryTarget: 'commonjs2',
 	},
 	mode: 'production',
 	module: {
-		rules: [{
-			test: /\.m?js$/,
-			use: {
-				loader: 'babel-loader',
-				options: {
-					presets: ['@babel/preset-env'],
-					plugins: ['@babel/plugin-proposal-object-rest-spread']
-				}
-			}
-		}]
-	}
+		rules: [
+			{
+				test: /\.m?js$/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env'],
+						plugins: ['@babel/plugin-proposal-object-rest-spread'],
+					},
+				},
+			},
+		],
+	},
 };
 
-const webConfig = {
+const esmConfig = {
+	target: 'node',
+	entry: './src/index.js',
+	output: {
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'to.esm.bundle.js',
+		library: 'to',
+		libraryTarget: 'commonjs-module',
+	},
+	mode: 'production',
+	module: {
+		rules: [
+			{
+				test: /\.m?js$/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env'],
+						plugins: ['@babel/plugin-proposal-object-rest-spread'],
+					},
+				},
+			},
+		],
+	},
+};
+
+const umdConfig = {
 	target: 'web',
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'to.web.bundle.js',
+		filename: 'to.umd.bundle.js',
 		library: 'to',
-		libraryTarget: 'umd'
+		libraryTarget: 'umd',
 	},
 	mode: 'production',
 	module: {
-		rules: [{
-			test: /\.m?js$/,
-			use: {
-				loader: 'babel-loader',
-				options: {
-					presets: ['@babel/preset-env'],
-					plugins: ['@babel/plugin-proposal-object-rest-spread']
-				}
-			}
-		}]
-	}
+		rules: [
+			{
+				test: /\.m?js$/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env'],
+						plugins: ['@babel/plugin-proposal-object-rest-spread'],
+					},
+				},
+			},
+		],
+	},
 };
 
-
-module.exports = [nodeConfig, webConfig];
+module.exports = [cjsConfig, esmConfig, umdConfig];
