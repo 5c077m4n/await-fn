@@ -28,7 +28,7 @@
 	},
 	"homepage": "https://5c077m4n.github.io/await-fn/",
 	"dependencies": {
-		"http-responder": "^2.0.20"
+		"http-responder": "^2.0.23"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.7.4",
