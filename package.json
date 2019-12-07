@@ -4,6 +4,7 @@
 	"description": "A tiny package to await a classic function (and more...).",
 	"main": "./dist/to.cjs.bundle.js",
 	"module": "./dist/to.esm.bundle.js",
+	"sideEffects": false,
 	"scripts": {
 		"clean": "rimraf ./dist",
 		"test": "mocha",

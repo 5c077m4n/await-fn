@@ -35,6 +35,9 @@ const esmConfig = {
 		library: 'to',
 		libraryTarget: 'commonjs-module',
 	},
+	optimization: {
+		usedExports: true,
+	},
 	mode: 'production',
 	module: {
 		rules: [
