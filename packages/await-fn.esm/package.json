@@ -1,0 +1,12 @@
+{
+	"name": "await-fn.esm",
+	"type": "module",
+	"module": "./src/index.js",
+	"exports": {
+		"default": "./src/index.js"
+	},
+	"sideEffects": false,
+	"scripts": {
+		"clean": "rimraf ./src"
+	}
+}

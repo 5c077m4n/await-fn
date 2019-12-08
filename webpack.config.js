@@ -4,8 +4,8 @@ const cjsConfig = {
 	target: 'node',
 	entry: './src/index.js',
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'to.cjs.bundle.js',
+		path: path.resolve(__dirname, 'packages/await-fn.cjs/src/'),
+		filename: 'index.js',
 		library: 'to',
 		libraryTarget: 'commonjs2',
 	},
@@ -17,7 +17,7 @@ const cjsConfig = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env'],
+						presets: [['@babel/preset-env', { modules: 'cjs' }]],
 						plugins: ['@babel/plugin-proposal-object-rest-spread'],
 					},
 				},
@@ -30,10 +30,9 @@ const esmConfig = {
 	target: 'node',
 	entry: './src/index.js',
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'to.esm.bundle.js',
+		path: path.resolve(__dirname, 'packages/await-fn.esm/src/'),
+		filename: 'index.js',
 		library: 'to',
-		libraryTarget: 'commonjs-module',
 	},
 	optimization: {
 		usedExports: true,
@@ -46,7 +45,7 @@ const esmConfig = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env'],
+						presets: [['@babel/preset-env', { modules: false }]],
 						plugins: ['@babel/plugin-proposal-object-rest-spread'],
 					},
 				},
@@ -59,8 +58,8 @@ const umdConfig = {
 	target: 'web',
 	entry: './src/index.js',
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'to.umd.bundle.js',
+		path: path.resolve(__dirname, 'packages/await-fn.umd/src/'),
+		filename: 'index.js',
 		library: 'to',
 		libraryTarget: 'umd',
 	},
@@ -72,7 +71,7 @@ const umdConfig = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env'],
+						presets: [['@babel/preset-env', { modules: 'umd' }]],
 						plugins: ['@babel/plugin-proposal-object-rest-spread'],
 					},
 				},
