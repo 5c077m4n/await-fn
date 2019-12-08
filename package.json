@@ -12,7 +12,7 @@
 	"scripts": {
 		"clean:all": "lerna run clean",
 		"test": "mocha",
-		"lint": "eslint ./src/**/*.js",
+		"lint": "eslint",
 		"lint:staged": "lint-staged",
 		"build": "webpack --config webpack.config.js",
 		"prepare": "run-s lint clean:all build test"
@@ -61,11 +61,11 @@
 	},
 	"lint-staged": {
 		"*.js": [
-			"eslint --fix ./src/**/*.js",
+			"eslint --fix",
 			"git add"
 		],
 		"*.{js,css,json,md}": [
-			"prettier --write ./src/**/*.js",
+			"prettier --write",
 			"git add"
 		]
 	}
