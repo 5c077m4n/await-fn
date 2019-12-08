@@ -5,17 +5,13 @@ const hr = require('http-responder');
 const to = (fn, { params, param, returnOne, web, throwError } = {}) => {
 	let promise;
 	if (fn.constructor === Function) {
-		promise = new Promise(resolve =>
-			resolve(params ? fn(...params) : fn(param))
-		);
+		promise = new Promise(resolve => resolve(params ? fn(...params) : fn(param)));
 	} else if (fn.constructor === Promise) {
 		promise = fn;
 	} else if (Array.isArray(fn)) {
 		const promArr = fn.map(fnOrProm => {
 			if (fnOrProm.constructor === Function) {
-				return new Promise(resolve =>
-					resolve(params ? fnOrProm(...params) : fnOrProm(param))
-				);
+				return new Promise(resolve => resolve(params ? fnOrProm(...params) : fnOrProm(param)));
 			}
 			if (fnOrProm.constructor === Promise) return fnOrProm;
 		});
