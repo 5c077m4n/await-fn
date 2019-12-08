@@ -1,72 +1,75 @@
 {
-	"name": "await-fn",
-	"version": "1.2.55",
-	"description": "A tiny package to await a classic function (and more...).",
-	"main": "./packages/await-fn.cjs/src/index.js",
-	"module": "./packages/await-fn.esm/src/index.js",
-	"exports": {
-		"default": "./packages/await-fn.esm/",
-		"require": "./packages/await-fn.cjs/"
-	},
-	"sideEffects": false,
-	"scripts": {
-		"clean:all": "lerna run clean",
-		"test": "mocha",
-		"lint": "eslint",
-		"lint:staged": "lint-staged",
-		"build": "webpack --config webpack.config.js",
-		"prepare": "run-s lint clean:all build test"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/5c077m4n/await-fn.git"
-	},
-	"keywords": [
-		"await",
-		"function",
-		"async",
-		"backend"
-	],
-	"author": "Roee Shapira",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/5c077m4n/await-fn/issues"
-	},
-	"homepage": "https://5c077m4n.github.io/await-fn/",
-	"dependencies": {
-		"http-responder": "^2.0.24"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.7.5",
-		"@babel/plugin-proposal-object-rest-spread": "^7.7.4",
-		"@babel/preset-env": "^7.7.5",
-		"babel-loader": "^8.0.6",
-		"chai": "^4.2.0",
-		"eslint": "^6.7.2",
-		"husky": "^3.1.0",
-		"lerna": "^3.19.0",
-		"lint-staged": "^9.5.0",
-		"mocha": "^6.2.2",
-		"npm-run-all": "^4.1.5",
-		"prettier": "^1.19.1",
-		"rimraf": "^3.0.0",
-		"webpack": "^4.41.2",
-		"webpack-cli": "^3.3.10"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged",
-			"pre-push": "run-s lint test"
-		}
-	},
-	"lint-staged": {
-		"*.js": [
-			"eslint --fix",
-			"git add"
-		],
-		"*.{js,css,json,md}": [
-			"prettier --write",
-			"git add"
-		]
-	}
+    "name": "await-fn",
+    "version": "1.2.55",
+    "description": "A tiny package to await a classic function (and more...).",
+    "main": "./packages/await-fn.cjs/src/index.js",
+    "module": "./packages/await-fn.esm/src/index.js",
+    "exports": {
+        "default": "./packages/await-fn.esm/",
+        "require": "./packages/await-fn.cjs/"
+    },
+    "sideEffects": false,
+    "scripts": {
+        "clean:all": "lerna run clean",
+        "test": "mocha ./__test__/**/*.spec.js",
+        "lint": "eslint ./src/**/*.js",
+        "lint:staged": "lint-staged",
+        "build": "webpack --config webpack.config.js",
+        "prepare": "run-s lint clean:all build test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/5c077m4n/await-fn.git"
+    },
+    "keywords": [
+        "await",
+        "function",
+        "async",
+        "backend"
+    ],
+    "author": "Roee Shapira",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/5c077m4n/await-fn/issues"
+    },
+    "homepage": "https://5c077m4n.github.io/await-fn/",
+    "dependencies": {
+        "esm": "^3.2.25",
+        "http-responder": "^2.0.24"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.7.5",
+        "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+        "@babel/preset-env": "^7.7.6",
+        "babel-loader": "^8.0.6",
+        "chai": "^4.2.0",
+        "eslint": "^6.7.2",
+        "eslint-config-prettier": "^6.7.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "husky": "^3.1.0",
+        "lerna": "^3.19.0",
+        "lint-staged": "^9.5.0",
+        "mocha": "^6.2.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^1.19.1",
+        "rimraf": "^3.0.0",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "pre-push": "run-s lint test"
+        }
+    },
+    "lint-staged": {
+        "*.js": [
+            "eslint --fix",
+            "git add"
+        ],
+        "*.{js,css,json,md}": [
+            "prettier --write",
+            "git add"
+        ]
+    }
 }
