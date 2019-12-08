@@ -9,15 +9,12 @@ var to = (function(e) {
 		(r.m = e),
 		(r.c = t),
 		(r.d = function(e, t, n) {
-			r.o(e, t) ||
-				Object.defineProperty(e, t, { enumerable: !0, get: n });
+			r.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: n });
 		}),
 		(r.r = function(e) {
 			'undefined' != typeof Symbol &&
 				Symbol.toStringTag &&
-				Object.defineProperty(e, Symbol.toStringTag, {
-					value: 'Module',
-				}),
+				Object.defineProperty(e, Symbol.toStringTag, { value: 'Module' }),
 				Object.defineProperty(e, '__esModule', { value: !0 });
 		}),
 		(r.t = function(e, t) {
@@ -26,10 +23,7 @@ var to = (function(e) {
 			var n = Object.create(null);
 			if (
 				(r.r(n),
-				Object.defineProperty(n, 'default', {
-					enumerable: !0,
-					value: e,
-				}),
+				Object.defineProperty(n, 'default', { enumerable: !0, value: e }),
 				2 & t && 'string' != typeof e)
 			)
 				for (var o in e)
@@ -66,37 +60,23 @@ var to = (function(e) {
 			return (
 				(function(e) {
 					if (Array.isArray(e)) {
-						for (
-							var t = 0, r = new Array(e.length);
-							t < e.length;
-							t++
-						)
-							r[t] = e[t];
+						for (var t = 0, r = new Array(e.length); t < e.length; t++) r[t] = e[t];
 						return r;
 					}
 				})(e) ||
 				(function(e) {
-					if (
-						Symbol.iterator in Object(e) ||
-						'[object Arguments]' ===
-							Object.prototype.toString.call(e)
-					)
+					if (Symbol.iterator in Object(e) || '[object Arguments]' === Object.prototype.toString.call(e))
 						return Array.from(e);
 				})(e) ||
 				(function() {
-					throw new TypeError(
-						'Invalid attempt to spread non-iterable instance'
-					);
+					throw new TypeError('Invalid attempt to spread non-iterable instance');
 				})()
 			);
 		}
 		var o = r(1);
 		e.exports = function(e) {
 			var t,
-				r =
-					arguments.length > 1 && void 0 !== arguments[1]
-						? arguments[1]
-						: {},
+				r = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
 				i = r.params,
 				u = r.param,
 				a = r.returnOne,
@@ -108,10 +88,7 @@ var to = (function(e) {
 				});
 			else if (e.constructor === Promise) t = e;
 			else {
-				if (!Array.isArray(e))
-					throw new Error(
-						'There was an erron in your input function.'
-					);
+				if (!Array.isArray(e)) throw new Error('There was an erron in your input function.');
 				var f = e.map(function(e) {
 					return e.constructor === Function
 						? new Promise(function(t) {
@@ -146,15 +123,10 @@ var to = (function(e) {
 	function(e, t, r) {
 		var n;
 		function o(e, t) {
-			return !t || ('object' !== p(t) && 'function' != typeof t)
-				? i(e)
-				: t;
+			return !t || ('object' !== p(t) && 'function' != typeof t) ? i(e) : t;
 		}
 		function i(e) {
-			if (void 0 === e)
-				throw new ReferenceError(
-					"this hasn't been initialised - super() hasn't been called"
-				);
+			if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
 			return e;
 		}
 		function u(e, t) {
@@ -172,17 +144,9 @@ var to = (function(e) {
 		function s(e) {
 			var t = 'function' == typeof Map ? new Map() : void 0;
 			return (s = function(e) {
-				if (
-					null === e ||
-					((r = e),
-					-1 === Function.toString.call(r).indexOf('[native code]'))
-				)
-					return e;
+				if (null === e || ((r = e), -1 === Function.toString.call(r).indexOf('[native code]'))) return e;
 				var r;
-				if ('function' != typeof e)
-					throw new TypeError(
-						'Super expression must either be null or a function'
-					);
+				if ('function' != typeof e) throw new TypeError('Super expression must either be null or a function');
 				if (void 0 !== t) {
 					if (t.has(e)) return t.get(e);
 					t.set(e, n);
@@ -192,12 +156,7 @@ var to = (function(e) {
 				}
 				return (
 					(n.prototype = Object.create(e.prototype, {
-						constructor: {
-							value: n,
-							enumerable: !1,
-							writable: !0,
-							configurable: !0,
-						},
+						constructor: { value: n, enumerable: !1, writable: !0, configurable: !0 },
 					})),
 					f(n, e)
 				);
@@ -205,17 +164,11 @@ var to = (function(e) {
 		}
 		function c(e, t, r) {
 			return (c = (function() {
-				if ('undefined' == typeof Reflect || !Reflect.construct)
-					return !1;
+				if ('undefined' == typeof Reflect || !Reflect.construct) return !1;
 				if (Reflect.construct.sham) return !1;
 				if ('function' == typeof Proxy) return !0;
 				try {
-					return (
-						Date.prototype.toString.call(
-							Reflect.construct(Date, [], function() {})
-						),
-						!0
-					);
+					return Date.prototype.toString.call(Reflect.construct(Date, [], function() {})), !0;
 				} catch (e) {
 					return !1;
 				}
@@ -244,8 +197,7 @@ var to = (function(e) {
 		}
 		function p(e) {
 			return (p =
-				'function' == typeof Symbol &&
-				'symbol' == typeof Symbol.iterator
+				'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
 					? function(e) {
 							return typeof e;
 					  }
@@ -264,8 +216,7 @@ var to = (function(e) {
 			function f(e, t) {
 				if (!i[e]) {
 					if (!o[e]) {
-						var n =
-							'function' == typeof parcelRequire && parcelRequire;
+						var n = 'function' == typeof parcelRequire && parcelRequire;
 						if (!t && n) return n(e, !0);
 						if (c) return c(e, !0);
 						if ('string' == typeof e) return r(2)(e);
@@ -404,64 +355,33 @@ var to = (function(e) {
 							c = (function(e) {
 								function t() {
 									var e,
-										r =
-											arguments.length > 0 &&
-											void 0 !== arguments[0]
-												? arguments[0]
-												: 500,
-										n =
-											arguments.length > 1 &&
-											void 0 !== arguments[1]
-												? arguments[1]
-												: {};
+										r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 500,
+										n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
 									if (
 										((function(e, t) {
 											if (!(e instanceof t))
-												throw new TypeError(
-													'Cannot call a class as a function'
-												);
+												throw new TypeError('Cannot call a class as a function');
 										})(this, t),
 										(e = o(this, l(t).call(this))),
 										Object.assign(i(e), n),
 										(e._isHttpRes = !0),
 										'number' == typeof r)
 									)
-										(e.statusCode = r),
-											(e.message = n.message
-												? n.message
-												: void 0);
+										(e.statusCode = r), (e.message = n.message ? n.message : void 0);
 									else {
 										if ('string' != typeof r)
-											throw new Error(
-												'The first parameter must be either a number or a string.'
-											);
-										(e.message = r),
-											(e.statusCode =
-												n.statusCode ||
-												n.status ||
-												500);
+											throw new Error('The first parameter must be either a number or a string.');
+										(e.message = r), (e.statusCode = n.statusCode || n.status || 500);
 									}
 									return o(e);
 								}
 								return (
 									(function(e, t) {
-										if (
-											'function' != typeof t &&
-											null !== t
-										)
-											throw new TypeError(
-												'Super expression must either be null or a function'
-											);
-										(e.prototype = Object.create(
-											t && t.prototype,
-											{
-												constructor: {
-													value: e,
-													writable: !0,
-													configurable: !0,
-												},
-											}
-										)),
+										if ('function' != typeof t && null !== t)
+											throw new TypeError('Super expression must either be null or a function');
+										(e.prototype = Object.create(t && t.prototype, {
+											constructor: { value: e, writable: !0, configurable: !0 },
+										})),
 											t && f(e, t);
 									})(t, e),
 									a(t, null, [
@@ -474,10 +394,7 @@ var to = (function(e) {
 										{
 											key: 'isHR',
 											value: function(e) {
-												return (
-													e.constructor === t &&
-													e._isHttpRes
-												);
+												return e.constructor === t && e._isHttpRes;
 											},
 										},
 									]),
@@ -491,9 +408,7 @@ var to = (function(e) {
 										{
 											key: 'end',
 											value: function(e) {
-												return e
-													.status(this.statusCode)
-													.json(this.payload);
+												return e.status(this.statusCode).json(this.payload);
 											},
 										},
 										{
@@ -511,9 +426,7 @@ var to = (function(e) {
 										{
 											key: 'log',
 											value: function() {
-												console.log(
-													JSON.stringify(this)
-												);
+												console.log(JSON.stringify(this));
 											},
 										},
 										{
@@ -556,26 +469,15 @@ var to = (function(e) {
 													statusCode: this.statusCode,
 													statusDesc: this.statusDesc,
 													message:
-														this.message &&
-														this.message.length
-															? this.message
-															: void 0,
-													data: this.data
-														? this.data
-														: void 0,
+														this.message && this.message.length ? this.message : void 0,
+													data: this.data ? this.data : void 0,
 													log: function() {
-														return console.log(
-															JSON.stringify(
-																e.payload
-															)
-														);
+														return console.log(JSON.stringify(e.payload));
 													},
 												};
 											},
 											set: function(e) {
-												throw new Error(
-													'This property is read-only.'
-												);
+												throw new Error('This property is read-only.');
 											},
 										},
 									]),
@@ -587,16 +489,8 @@ var to = (function(e) {
 								c[n(e)] = function(e, r) {
 									return new c(t, {
 										statusCode: t,
-										message:
-											e &&
-											e.constructor === String &&
-											e.length
-												? e
-												: void 0,
-										data:
-											e && e.constructor !== String
-												? e
-												: r,
+										message: e && e.constructor === String && e.length ? e : void 0,
+										data: e && e.constructor !== String ? e : r,
 									});
 								};
 							}),
