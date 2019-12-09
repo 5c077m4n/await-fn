@@ -16,5 +16,5 @@ module.exports = {
 	rules: {
 		'no-unused-vars': 'warn',
 	},
-	ignorePatterns: ['__test__/', 'packages/', '.*.js'],
+	ignorePatterns: ['__test__/', 'packages/'],
 };
