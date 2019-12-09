@@ -34,7 +34,6 @@
 	},
 	"homepage": "https://5c077m4n.github.io/await-fn/",
 	"dependencies": {
-		"esm": "^3.2.25",
 		"http-responder": "^2.0.24"
 	},
 	"devDependencies": {
