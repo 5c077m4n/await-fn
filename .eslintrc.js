@@ -15,6 +15,7 @@ module.exports = {
 	},
 	rules: {
 		'no-unused-vars': 'warn',
+                indent: ['warn', 'tab'],
 	},
 	ignorePatterns: ['__test__/', 'packages/'],
 };
