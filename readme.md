@@ -21,6 +21,18 @@ And into your code:
 const to = require('await-fn');
 ```
 
+or
+
+```javascript
+import to from 'await-fn';
+```
+
+or
+
+```
+https://unpkg.com/await-fn@latest/packages/await-fn.umd/src/index.js
+```
+
 **and you are good to go!**
 
 For example:
