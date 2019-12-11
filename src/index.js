@@ -1,8 +1,6 @@
-'use strict';
+import hr from 'http-responder';
 
-const hr = require('http-responder');
-
-const to = (fn, { params, param, returnOne, web, throwError } = {}) => {
+export default function to(fn, { params, param, returnOne, web, throwError } = {}) {
 	let promise;
 	if (fn.constructor === Function) {
 		promise = new Promise(resolve => resolve(params ? fn(...params) : fn(param)));
@@ -30,6 +28,4 @@ const to = (fn, { params, param, returnOne, web, throwError } = {}) => {
 		.catch(error => {
 			throw web ? hr.improve(error) : error;
 		});
-};
-
-module.exports = to;
+}

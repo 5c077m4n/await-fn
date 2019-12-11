@@ -2,6 +2,9 @@
 	"name": "await-fn.umd",
 	"type": "umd",
 	"main": "./src/index.js",
+	"exports": {
+		"require": "./src/index.js"
+	},
 	"scripts": {
 		"clean": "rimraf ./src"
 	}

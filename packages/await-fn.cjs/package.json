@@ -1,9 +1,11 @@
 {
-    "name": "await-fn.cjs",
-    "type": "commonjs",
-    "main": "./src/index.js",
-    "scripts": {
-        "clean": "rimraf ./src",
-        "test": "mocha ./__test__/**/*.spec.js"
-    }
+	"name": "await-fn.cjs",
+	"type": "commonjs",
+	"main": "./src/index.js",
+	"exports": {
+		"require": "./src/index.js"
+	},
+	"scripts": {
+		"clean": "rimraf ./src"
+	}
 }

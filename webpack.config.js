@@ -26,34 +26,6 @@ const cjsConfig = {
 	},
 };
 
-const esmConfig = {
-	target: 'node',
-	entry: './src/index.js',
-	output: {
-		path: path.resolve(__dirname, 'packages/await-fn.esm/src/'),
-		filename: 'index.js',
-		library: 'to',
-	},
-	optimization: {
-		usedExports: true,
-	},
-	mode: 'production',
-	module: {
-		rules: [
-			{
-				test: /\.m?js$/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [['@babel/preset-env', { modules: false }]],
-						plugins: ['@babel/plugin-proposal-object-rest-spread'],
-					},
-				},
-			},
-		],
-	},
-};
-
 const umdConfig = {
 	target: 'web',
 	entry: './src/index.js',
@@ -80,4 +52,4 @@ const umdConfig = {
 	},
 };
 
-module.exports = [cjsConfig, esmConfig, umdConfig];
+module.exports = [cjsConfig, umdConfig];
