@@ -15,7 +15,7 @@ Type into the terminal
 npm install --save await-fn
 ```
 
-And into your code (on commonjs envs):
+And into your code (on commonjs environments):
 
 ```javascript
 const to = require('await-fn');
@@ -68,7 +68,7 @@ And the results will be returned like this:
 
 `[error, data]` where:
 
--   `error: undefined | Error | http-responder` is an error object (depending on the options chosen - if `throwError` is set to true then this won't exist).
+-   `error: undefined | Error` is an error object (depending on the options chosen - if `throwError` is set to true then this won't exist).
 
 -   `data: undefined | any | any[]` is the function's returned value (if there is one) - if you inputted an array the result will be in an array too.
 
