@@ -15,19 +15,19 @@ Type into the terminal
 npm install --save await-fn
 ```
 
-And into your code:
+And into your code (on commonjs envs):
 
 ```javascript
 const to = require('await-fn');
 ```
 
-or
+or (node 13.0 - 13.2 with `--experimental-modules` flag, 13.2+ normally):
 
 ```javascript
 import to from 'await-fn';
 ```
 
-or
+or (in a script HTML tag):
 
 ```
 https://unpkg.com/await-fn@latest/packages/await-fn.umd/src/index.js
