@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import hr from 'http-responder';
 
 import to from '../src';
 
@@ -68,12 +67,12 @@ describe('Test the to function', function() {
 			});
 			expect(error instanceof Error).equal(true);
 		});
-		it('should catch the HTTP Responder object', async function() {
+		it('should catch the Error', async function() {
 			const [error, data] = await to(factorial, {
 				param: 1e5,
 				web: true,
 			});
-			expect(hr.isHR(error));
+			expect(error instanceof Error);
 		});
 		it('should throw an error', async function() {
 			try {
@@ -85,7 +84,7 @@ describe('Test the to function', function() {
 				expect(error instanceof Error).equal(true);
 			}
 		});
-		it('should throw an HTTP Responder object', async function() {
+		it('should throw an Error', async function() {
 			try {
 				await to(factorial, {
 					param: 1e5,
@@ -93,7 +92,7 @@ describe('Test the to function', function() {
 					web: true,
 				});
 			} catch (error) {
-				expect(hr.isHR(error)).equal(true);
+				expect(error instanceof Error);
 			}
 		});
 	});

@@ -7,6 +7,8 @@
 
 A tiny helper to make it easy to await a classic function (and now promises too).
 
+**Note that the web option has been removed in order to keeep the package as small as possible - if you want you can add it yourselves: [HTTP Responder](https://www.npmjs.com/package/http-responder)**
+
 Type into the terminal
 
 ```zsh
@@ -27,8 +29,8 @@ For example:
 async function doThisNThat() {
 	/** code code code */
 	let [err, data] = await to((a, b) => a + b, { params: [1, 3] });
-	if(err) {
-        /** handle error - only if throwError is set to false! */
+	if (err) {
+		/** handle error - only if throwError is set to false! */
 	}
 	/** code code code */
 }
@@ -42,13 +44,11 @@ To use this function: `to(fnOrPromise [, options]);`
 
 2. `options: {}` includes:
 
-	- `params: any[]` **or** `param: any` the input parameters for your function **(for functions only)**.
+    - `params: any[]` **or** `param: any` the input parameters for your function **(for functions only)**.
 
-	- `web: boolean` set to true if you would like to have the returned error in a [HTTP Responder](https://www.npmjs.com/package/http-responder) object.
+    - `throwError: boolean` set to true if you wish the error to be thrown instead of returned (_this option has been renamed from `throw`_).
 
-	- `throwError: boolean` set to true if you wish the error to be thrown instead of returned (*this option has been renamed from `throw`*).
-
-	- `returnOne: boolean` set to true so the result will be only in one parameter (instead of an array of two) - it can be either a result or an error.
+    - `returnOne: boolean` set to true so the result will be only in one parameter (instead of an array of two) - it can be either a result or an error.
 
 ### Returned values:
 
@@ -56,9 +56,8 @@ And the results will be returned like this:
 
 `[error, data]` where:
 
-- `error: undefined | Error | http-responder` is an error object (depending on the options chosen - if `throwError` is set to true then this won't exist).
+-   `error: undefined | Error | http-responder` is an error object (depending on the options chosen - if `throwError` is set to true then this won't exist).
 
-- `data: undefined | any | any[]` is the function's returned value (if there is one) - if you inputted an array the result will be in an array too.
-
+-   `data: undefined | any | any[]` is the function's returned value (if there is one) - if you inputted an array the result will be in an array too.
 
 **Happy waiting! ;)**

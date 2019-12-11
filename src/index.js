@@ -1,6 +1,4 @@
-import hr from 'http-responder';
-
-export default function to(fn, { params, param, returnOne, web, throwError } = {}) {
+export default function to(fn, { params, param, returnOne, throwError } = {}) {
 	let promise;
 	if (fn.constructor === Function) {
 		promise = new Promise(resolve => resolve(params ? fn(...params) : fn(param)));
@@ -22,10 +20,10 @@ export default function to(fn, { params, param, returnOne, web, throwError } = {
 		.then(data => (returnOne ? data : [undefined, data]))
 		.catch(error => {
 			if (throwError) return Promise.reject(error);
-			if (returnOne) return web ? hr.improve(error) : error;
-			return web ? [hr.improve(error), undefined] : [error, undefined];
+			if (returnOne) return error;
+			return [error, undefined];
 		})
 		.catch(error => {
-			throw web ? hr.improve(error) : error;
+			throw error;
 		});
 }
