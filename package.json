@@ -36,21 +36,21 @@
 	"homepage": "https://5c077m4n.github.io/await-fn/",
 	"dependencies": {},
 	"devDependencies": {
-		"@rollup/plugin-node-resolve": "^6.0.0",
+		"@rollup/plugin-node-resolve": "^6.1.0",
 		"babel-loader": "^8.0.6",
 		"chai": "^4.2.0",
-		"eslint": "^6.7.2",
-		"eslint-config-prettier": "^6.7.0",
-		"eslint-plugin-prettier": "^3.1.1",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-prettier": "^3.1.2",
 		"esm": "^3.2.25",
 		"husky": "^3.1.0",
-		"lerna": "^3.19.0",
+		"lerna": "^3.20.2",
 		"lint-staged": "^9.5.0",
 		"mocha": "^6.2.2",
 		"npm-run-all": "^4.1.5",
 		"prettier": "^1.19.1",
-		"rimraf": "^3.0.0",
-		"rollup": "^1.27.10"
+		"rimraf": "^3.0.1",
+		"rollup": "^1.30.1"
 	},
 	"husky": {
 		"hooks": {
