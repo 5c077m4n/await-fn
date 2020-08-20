@@ -1,4 +1,4 @@
-export default function to(fn, { params, param, returnOne, throwError } = {}) {
+export default async function to(fn, { params, param, returnOne, throwError } = {}) {
 	let promise;
 	if (fn.constructor === Function) {
 		promise = new Promise(resolve => resolve(params ? fn(...params) : fn(param)));
@@ -13,7 +13,7 @@ export default function to(fn, { params, param, returnOne, throwError } = {}) {
 		});
 		promise = Promise.all(promArr);
 	} else {
-		throw new Error('There was an erron in your input function.');
+		throw new Error('There was an error in your input function.');
 	}
 
 	return promise

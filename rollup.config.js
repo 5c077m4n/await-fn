@@ -4,12 +4,16 @@ export default {
 	input: 'src/index.js',
 	output: [
 		{
-			dir: 'packages/await-fn.cjs/src/',
+			file: 'packages/await-fn/src/index.mjs',
+			format: 'esm',
+		},
+		{
+			file: 'packages/await-fn/src/index.cjs',
 			format: 'cjs',
 		},
 		{
 			name: 'to',
-			dir: 'packages/await-fn.umd/src/',
+			file: 'packages/await-fn/src/index.umd.js',
 			format: 'umd',
 		},
 	],
