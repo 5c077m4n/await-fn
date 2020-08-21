@@ -1,6 +1,5 @@
 {
-	"name": "await-fn.umd",
-	"type": "umd",
+	"name": "await-fn",
 	"exports": {
 		"import": "./src/index.mjs",
 		"require": "./src/index.cjs",

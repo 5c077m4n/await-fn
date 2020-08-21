@@ -31,7 +31,7 @@
 		"packages/await-fn/src/**/*"
 	],
 	"scripts": {
-		"bootstrap": "lerna bootstrap",
+		"bootstrap": "lerna bootstrap --hoist --force-local",
 		"build": "rollup -c ./rollup.config.js",
 		"clean:all": "lerna run clean",
 		"lint": "eslint ./src/**/*.js --fix",

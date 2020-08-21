@@ -1,8 +1,12 @@
 {
+	"name": "await-fn.test.cjs",
 	"type": "commonjs",
 	"scripts": {
 		"clean": "rimraf ./node_modules",
 		"test": "jest"
+	},
+	"dependencies": {
+		"await-fn": "*"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.11.1",
