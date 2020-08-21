@@ -34,7 +34,7 @@
 		"bootstrap": "lerna bootstrap --hoist --force-local",
 		"build": "rollup -c ./rollup.config.js",
 		"clean:all": "lerna run clean",
-		"lint": "eslint './src/**/*.js' --fix",
+		"lint": "eslint './src/**/*!(umd.).js' --fix",
 		"prepare": "run-s clean:all lint bootstrap build test",
 		"test": "jest"
 	},
@@ -49,10 +49,10 @@
 			"sort-package-json"
 		],
 		"*.js": [
-			"eslint './src/**/*.js' --fix"
+			"eslint './src/**/*!(umd.).js' --fix"
 		],
 		"*.{js,css,json,md}": [
-			"prettier --write './src/**/*.js'"
+			"prettier --write './src/**/*!(umd.).js'"
 		]
 	},
 	"dependencies": {},
