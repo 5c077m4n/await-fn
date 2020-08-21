@@ -27,10 +27,10 @@ or (node 13.0 - 13.2 with `--experimental-modules` flag, 13.2+ normally):
 import to from 'await-fn';
 ```
 
-or (in a script HTML tag):
+or (in your HTML):
 
-```
-https://unpkg.com/await-fn
+```html
+<script src="https://unpkg.com/await-fn"></script>
 ```
 
 **and you are good to go!**
