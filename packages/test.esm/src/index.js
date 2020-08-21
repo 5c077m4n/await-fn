@@ -1,1 +1,3 @@
-export * as to from 'await-fn';
+import to from 'await-fn';
+
+export default to;
