@@ -35,7 +35,7 @@
 		"build": "rollup -c ./rollup.config.js",
 		"clean:all": "lerna run clean",
 		"lint": "eslint './src/**/*.js' --fix",
-		"prepare": "run-s bootstrap lint clean:all build test",
+		"prepare": "run-s clean:all lint bootstrap build test",
 		"test": "jest"
 	},
 	"husky": {
