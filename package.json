@@ -34,14 +34,16 @@
 		"bootstrap": "lerna bootstrap --hoist --force-local",
 		"build": "rollup -c ./rollup.config.js",
 		"clean:all": "lerna run clean",
-		"lint": "eslint './src/**/*!(.umd).js' --fix",
+		"lint": "run-p lint:*",
+		"lint:eslint": "eslint './src/**/*!(.umd).js' --fix",
+		"lint:prettier": "eslint './src/**/*!(.umd).js' --fix",
 		"prepare": "run-s clean:all lint bootstrap build test",
 		"test": "jest"
 	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "lint-staged --allow-empty",
-			"pre-push": "run-s lint build test"
+			"pre-push": "npm run prepare"
 		}
 	},
 	"lint-staged": {
