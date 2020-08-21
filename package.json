@@ -47,10 +47,10 @@
 		}
 	},
 	"lint-staged": {
-		"*!(.umd).js": [
+		"**!(.packages/await-fn/src)/*.js": [
 			"eslint --fix"
 		],
-		"*!(.umd).{js,css,json,md}": [
+		"**!(.packages/await-fn/src)/*.{js,css,json,md}": [
 			"prettier --write"
 		],
 		"**/package.json": [
