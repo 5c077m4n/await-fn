@@ -7,7 +7,7 @@
 
 A tiny helper to make it easy to await a classic function (and now promises too).
 
-**Note that the web option has been removed in order to keeep the package as small as possible - if you want you can add it yourselves: [HTTP Responder](https://www.npmjs.com/package/http-responder)**
+**Note that the web option has been removed in order to keep the package as small as possible - if you want you can add it yourselves: [HTTP Responder](https://www.npmjs.com/package/http-responder)**
 
 Type into the terminal
 
@@ -30,7 +30,7 @@ import to from 'await-fn';
 or (in a script HTML tag):
 
 ```
-https://unpkg.com/await-fn@latest/packages/await-fn.umd/src/index.js
+https://unpkg.com/await-fn@latest/packages/await-fn/src/index.umd.js
 ```
 
 **and you are good to go!**
