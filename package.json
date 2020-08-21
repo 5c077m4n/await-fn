@@ -36,7 +36,7 @@
 		"clean:all": "lerna run clean",
 		"lint": "run-p lint:*",
 		"lint:eslint": "eslint './src/**/*!(.umd).js' --fix",
-		"lint:prettier": "eslint './src/**/*!(.umd).js' --fix",
+		"lint:prettier": "prettier './src/**/*!(.umd).js' --write",
 		"prepare": "run-s clean:all lint bootstrap build test",
 		"test": "jest"
 	},
