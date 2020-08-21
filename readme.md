@@ -27,7 +27,7 @@ or (node 13.0 - 13.2 with `--experimental-modules` flag, 13.2+ normally):
 import to from 'await-fn';
 ```
 
-or (in a script HTML tag - without a '/' at the end!):
+or (in a script HTML tag):
 
 ```
 https://unpkg.com/await-fn
