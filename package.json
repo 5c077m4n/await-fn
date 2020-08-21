@@ -47,14 +47,14 @@
 		}
 	},
 	"lint-staged": {
+		"*!(.umd).js": [
+			"eslint --fix"
+		],
+		"*!(.umd).{js,css,json,md}": [
+			"prettier --write"
+		],
 		"**/package.json": [
 			"sort-package-json"
-		],
-		"*.js": [
-			"eslint './src/**/*!(.umd).js' --fix"
-		],
-		"*.{js,css,json,md}": [
-			"prettier --write './src/**/*!(.umd).js'"
 		]
 	},
 	"dependencies": {},
