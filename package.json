@@ -21,11 +21,11 @@
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
+		"browser": "./packages/await-fn/src/index.umd.js",
 		"import": "./packages/await-fn/src/index.mjs",
-		"require": "./packages/await-fn/src/index.cjs/",
-		"umd": "./packages/await-fn/src/index.umd.js"
+		"require": "./packages/await-fn/src/index.cjs/"
 	},
-	"main": "./packages/await-fn/src/index.cjs",
+	"main": "./packages/await-fn/src/index.umd.js",
 	"module": "./packages/await-fn/src/index.mjs",
 	"files": [
 		"packages/await-fn/src/**/*"
