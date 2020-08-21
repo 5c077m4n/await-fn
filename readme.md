@@ -30,7 +30,7 @@ import to from 'await-fn';
 or (in a script HTML tag - without a '/' at the end!):
 
 ```
-https://unpkg.com/await-fn@latest
+https://unpkg.com/await-fn
 ```
 
 **and you are good to go!**
