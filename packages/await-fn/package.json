@@ -1,11 +1,11 @@
 {
 	"name": "await-fn",
 	"exports": {
+		"browser": "./src/index.umd.js",
 		"import": "./src/index.mjs",
-		"require": "./src/index.cjs",
-		"umd": "./src/index.umd.js"
+		"require": "./src/index.cjs"
 	},
-	"main": "./src/index.cjs",
+	"main": "./src/index.umd.js",
 	"scripts": {
 		"clean": "rimraf ./src"
 	}
