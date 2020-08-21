@@ -53,7 +53,7 @@
 			"eslint ./src/**/*.js --fix"
 		],
 		"*.{js,css,json,md}": [
-			"prettier --write"
+			"prettier ./src/**/*.js --write"
 		]
 	},
 	"dependencies": {},
