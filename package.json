@@ -25,8 +25,8 @@
 		"require": "./packages/await-fn/src/index.cjs/",
 		"umd": "./packages/await-fn/src/index.umd.js"
 	},
-	"main": "./packages/await-fn.cjs/src/index.js",
-	"module": "./src/index.js",
+	"main": "./packages/await-fn/src/index.cjs",
+	"module": "./packages/await-fn/src/index.mjs",
 	"files": [
 		"packages/await-fn/src/**/*"
 	],
