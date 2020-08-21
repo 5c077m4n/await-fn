@@ -1,6 +1,6 @@
 {
 	"name": "await-fn",
-	"version": "1.4.2",
+	"version": "1.4.3",
 	"description": "A tiny package to await a classic function (and now even more).",
 	"keywords": [
 		"await",
