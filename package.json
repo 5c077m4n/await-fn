@@ -35,7 +35,6 @@
 		"build": "rollup -c ./rollup.config.js",
 		"clean:all": "lerna run clean",
 		"lint": "eslint ./src/**/*.js --fix",
-		"lint:staged": "lint-staged",
 		"prepare": "run-s bootstrap lint clean:all build test",
 		"test": "jest"
 	},
@@ -53,7 +52,7 @@
 			"eslint ./src/**/*.js --fix"
 		],
 		"*.{js,css,json,md}": [
-			"prettier ./src/**/*.js --write"
+			"prettier --write ./src/**/*.js"
 		]
 	},
 	"dependencies": {},
